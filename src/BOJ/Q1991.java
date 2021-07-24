@@ -3,19 +3,20 @@ package BOJ;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q1991 {
 
     static int N;
-    static Node arr[] = new Node[26];
+    static Map<Character, Node> map = new HashMap<>();
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
-        for (int i=0; i<26; i++) {
-            arr[i] = new Node(Character.toString((char)(i+'A')));
+        for (int i=0; i<N; i++) {
+            map.put((char)('A'+i), new Node((char)('A'+i)));
         }
 
         for (int i=0; i<N; i++) {
@@ -24,56 +25,52 @@ public class Q1991 {
             n = s.charAt(0);
             l = s.charAt(2);
             r = s.charAt(4);
-            if (l!='.') {
-                arr[n-'A'].left = l-'A';
-                arr[l-'A'].parent = n-'A';
+            if (l != '.') {
+                map.get(n).left = map.get(l);
             }
-            if (r!='.'){
-                arr[n-'A'].right = r-'A';
-                arr[r-'A'].parent = n-'A';
+            if (r != '.'){
+                map.get(n).right = map.get(r);
             }
         }
 
         // 전위 순회
-        preOrder(0);
+        preOrder(map.get('A'));
         sb.append("\n");
         // 중위 순회
-        inOrder(0);
+        inOrder(map.get('A'));
         sb.append("\n");
         // 후위 순회
-        postOrder(0);
+        postOrder(map.get('A'));
         sb.append("\n");
 
         System.out.println(sb);
     }
 
-    static void preOrder(int node) {
-        sb.append(arr[node].s);
-        if (arr[node].left > -1) preOrder(arr[node].left);
-        if (arr[node].right > -1) preOrder(arr[node].right);
+    static void preOrder(Node node) {
+        sb.append(node.ch);
+        if (node.left != null) preOrder(node.left);
+        if (node.right != null) preOrder(node.right);
     }
 
-    static void inOrder(int node) {
-        if (arr[node].left > -1) inOrder(arr[node].left);
-        sb.append(arr[node].s);
-        if (arr[node].right > -1) inOrder(arr[node].right);
+    static void inOrder(Node node) {
+        if (node.left != null) inOrder(node.left);
+        sb.append(node.ch);
+        if (node.right != null) inOrder(node.right);
     }
 
-    static void postOrder(int node) {
-        if (arr[node].left > -1) postOrder(arr[node].left);
-        if (arr[node].right > -1) postOrder(arr[node].right);
-        sb.append(arr[node].s);
+    static void postOrder(Node node) {
+        if (node.left != null) postOrder(node.left);
+        if (node.right != null) postOrder(node.right);
+        sb.append(node.ch);
     }
 
     static class Node {
-        String s;
-        int parent;
-        int left;
-        int right;
+        char ch;
+        Node left;
+        Node right;
 
-        public Node(String s) {
-            this.s = s;
-            this.parent = this.right = this.left = -1;
+        public Node(char ch) {
+            this.ch = ch;
         }
     }
 
