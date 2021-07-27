@@ -73,14 +73,4 @@ public class Q1260 {
             }
         }
     }
-
-    static class Node{
-        int n;
-        Node next;
-
-        public Node(int n, Node next) {
-            this.n = n;
-            this.next = next;
-        }
-    }
 }
