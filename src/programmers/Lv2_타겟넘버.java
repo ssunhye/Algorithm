@@ -1,6 +1,6 @@
 package programmers;
 
-public class Q2_타겟넘버 {
+public class Lv2_타겟넘버 {
     static int answer;
 
     public static void main(String[] args) {

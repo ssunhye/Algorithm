@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.Arrays;
 
-public class Q1_완주하지못한선수 {
+public class Lv1_완주하지못한선수 {
     public static void main(String[] args) {
         String[] participant = {"mislav", "stanko", "mislav", "ana"};
         String[] completion = {"stanko", "ana", "mislav"};
