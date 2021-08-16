@@ -10,25 +10,17 @@ public class Lv2_HIndex {
     }
 
     public static int solution(int[] citations) {
-        int h = citations.length;
+        int answer = 0;
         Arrays.sort(citations);
 
-        while (true) {
-            int cnt = 0;
-            for (int i=citations.length-1; i>=0; --i) {
-                if (h <= citations[i]) {
-                    cnt++;
-                } else {
-                    break;
-                }
-            }
-            if (h <= cnt) {
+        for (int i=0; i<citations.length; i++) {
+            int h = citations.length - i;
+            if (h <= citations[i]) {
+                answer = h;
                 break;
-            } else {
-                --h;
             }
         }
 
-        return h;
+        return answer;
     }
 }
