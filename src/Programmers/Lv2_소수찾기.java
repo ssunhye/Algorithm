@@ -1,7 +1,6 @@
-package programmers;
+package Programmers;
 
 import java.util.HashSet;
-import java.util.PriorityQueue;
 import java.util.Set;
 
 public class Lv2_소수찾기 {

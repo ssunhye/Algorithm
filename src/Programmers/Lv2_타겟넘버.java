@@ -1,4 +1,4 @@
-package programmers;
+package Programmers;
 
 public class Lv2_타겟넘버 {
     static int answer;

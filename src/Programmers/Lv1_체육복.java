@@ -1,6 +1,4 @@
-package programmers;
-
-import java.util.Arrays;
+package Programmers;
 
 public class Lv1_체육복 {
     public static void main(String[] args) {

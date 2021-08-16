@@ -1,6 +1,5 @@
-package programmers;
+package Programmers;
 
-import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class Lv2_더맵게 {
