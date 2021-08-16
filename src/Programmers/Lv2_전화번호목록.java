@@ -1,6 +1,7 @@
 package Programmers;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Lv2_전화번호목록 {
 
@@ -15,7 +16,7 @@ public class Lv2_전화번호목록 {
     public static boolean solution(String[] phone_book) {
         boolean answer = true;
 
-        HashMap<String, Integer> hm = new HashMap<>();
+        Map<String, Integer> hm = new HashMap<>();
         for (int i=0; i<phone_book.length; i++) {
             hm.put(phone_book[i], i);
         }
