@@ -1,22 +1,26 @@
 package programmers;
 
-public class Lv2_타겟넘버 {
+import java.util.HashMap;
+import java.util.Map;
+
+public class Lv2_위장 {
     static int answer;
 
     public static void main(String[] args) {
-        int[] numbers = {1,1,1,1,1};
-        int target = 3;
-
-        dfs(0, target, 0, numbers);
+        String[][] clothes = {{"yellowhat", "face"},{"bluesunglasses", "face"},{"green_turban", "face"}};
+        answer = solution(clothes);
         System.out.println(answer);
     }
 
-    public static void dfs(int cnt, int target, int sum, int[] numbers) {
-        if (cnt == numbers.length) {
-            if (sum == target) answer++;
-            return;
+    public static int solution(String[][] clothes) {
+        Map<String, Integer> hm = new HashMap<>();
+        for (int i=0; i<clothes.length; i++) {
+            hm.put(clothes[i][1], hm.getOrDefault(clothes[i][1], 1) + 1);
         }
-        dfs(cnt+1, target, sum+numbers[cnt], numbers);
-        dfs(cnt+1, target, sum-numbers[cnt], numbers);
+        int ans = 1;
+        for (Integer value : hm.values()) {
+            ans *= value;
+        }
+        return ans-1;
     }
 }
