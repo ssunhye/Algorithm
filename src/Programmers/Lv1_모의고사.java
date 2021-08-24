@@ -1,7 +1,6 @@
 package programmers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Lv1_모의고사 {
