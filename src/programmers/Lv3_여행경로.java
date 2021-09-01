@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class lv3_여행경로 {
+public class Lv3_여행경로 {
     public static boolean[] visited;
     public static int n;
     public static ArrayList<String> answer = new ArrayList<>();
