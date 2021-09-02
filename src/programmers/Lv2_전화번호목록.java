@@ -14,6 +14,7 @@ public class Lv2_전화번호목록 {
     }
 
     public static boolean solution(String[] phone_book) {
+        /* 첫번째 풀이
         boolean answer = true;
 
         Map<String, Integer> hm = new HashMap<>();
@@ -31,5 +32,23 @@ public class Lv2_전화번호목록 {
         }
 
         return answer;
+         */
+
+        int n = phone_book.length;
+
+        Map<String, Integer> map = new HashMap<>();
+        for (int i=0; i<n; i++) {
+            map.put(phone_book[i], i);
+        }
+
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<phone_book[i].length(); j++) {
+                String str = phone_book[i].substring(0, j);
+                if (map.containsKey(str)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
