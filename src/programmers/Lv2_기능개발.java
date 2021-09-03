@@ -16,6 +16,7 @@ public class Lv2_기능개발 {
     }
 
     public static int[] solution(int[] progresses, int[] speeds) {
+        /*
         Queue<Integer> q = new LinkedList<>();
         for (int i=0; i<progresses.length; i++) {
             q.offer((int)Math.ceil((100.0-progresses[i])/speeds[i]));
@@ -40,5 +41,26 @@ public class Lv2_기능개발 {
         }
 
         return answer;
+
+         */
+
+        Queue<Integer> q = new LinkedList<>();
+        for (int i=0; i<progresses.length; i++) {
+            q.offer((int)Math.ceil((100.0-progresses[i])/speeds[i]));
+        }
+
+        List<Integer> answer = new ArrayList<>();
+        while(!q.isEmpty()) {
+            int cur = q.poll();
+            int cnt = 1;
+
+            while (!q.isEmpty() && cur >=q.peek()) {
+                cnt++;
+                q.poll();
+            }
+            answer.add(cnt);
+
+        }
+        return answer.stream().mapToInt(Integer::intValue).toArray();
     }
 }
