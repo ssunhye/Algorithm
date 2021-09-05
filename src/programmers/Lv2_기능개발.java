@@ -16,7 +16,7 @@ public class Lv2_기능개발 {
     }
 
     public static int[] solution(int[] progresses, int[] speeds) {
-        /*
+        /* 첫번째 풀이
         Queue<Integer> q = new LinkedList<>();
         for (int i=0; i<progresses.length; i++) {
             q.offer((int)Math.ceil((100.0-progresses[i])/speeds[i]));
